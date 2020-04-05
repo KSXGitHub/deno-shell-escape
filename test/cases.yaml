@@ -1,0 +1,57 @@
+- input:
+    - curl
+    - '-v'
+    - '-H'
+    - Location;
+    - '-H'
+    - 'User-Agent: dave#10'
+    - 'http://www.daveeddy.com/?name=dave&age=24'
+  output: >-
+    curl -v -H 'Location;' -H 'User-Agent: dave#10'
+    'http://www.daveeddy.com/?name=dave&age=24'
+- input:
+    - echo
+    - hello!
+    - how are you doing $USER
+    - '"double"'
+    - '''single'''
+  output: echo 'hello!' 'how are you doing $USER' '"double"' \''single'\'
+- input:
+    - echo
+    - hello\nworld
+  output: echo 'hello\nworld'
+- input:
+    - echo
+    - 'hello:world'
+  output: 'echo hello:world'
+- input:
+    - echo
+    - '--hello=world'
+  output: echo --hello=world
+- input:
+    - echo
+    - hello\tworld
+  output: echo 'hello\tworld'
+- input:
+    - echo
+    - "\thello\nworld'"
+  output: "echo '\thello\nworld'\\'"
+- input:
+    - echo
+    - hello  world
+  output: echo 'hello  world'
+- input:
+    - echo
+    - hello
+    - world
+  output: echo hello world
+- input:
+    - echo
+    - hello\\'
+    - '''\\''world'
+  output: echo 'hello\\'\' \''\\'\''world'
+- input:
+    - echo
+    - hello
+    - world\
+  output: echo hello 'world\'
