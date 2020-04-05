@@ -1,7 +1,7 @@
 import { NEED_ESCAPE } from './regexes.ts'
 
 const escape = (value: string) =>
-  `'${value.replace(/'/, "'\\'")}'`
+  `'${value.replace(/'/g, "'\\''")}'`
     .replace(/^(?:'')+/g, '') // deduplicate single-quotes
     .replace(/\\'''/g, "\\'") // remove non-escaped single-quote if there are enclosed between 2 escaped
 
